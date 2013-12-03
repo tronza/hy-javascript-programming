@@ -51,37 +51,51 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="etusivu">
                                 <h1>Hyviä JavaScript-ohjelmoinnin käytäntöjä</h1>
-                                <h2>Ryhmä Vikström</h2>
-                                <p>Ryhmä Vikströmin JavaScript-kurssin tuotokset</p>
-                                <h3>Ryhmän jäsenet</h3>
+                                <br/>
+                                <h4>Ryhmä Vikström</h4>
                                 <ul>
                                     <li>Mika Vikström</li>
                                     <li>Kai Kulju</li>
                                     <li>Jouni Varis</li>
                                 </ul>
 
-                                <h2>Miksi JavaScript on mielenkiintoinen?</h2>
+                                <h2>Johdanto</h2>
+                                <p>
+                                    JavaScript koostuu yksinkertaisista paloista. Se sisältää vain olioita, taulukoita, literaaleja, funktioita ja silmuikoita eikä paljon muuta. Ei ole luokkia, moduuleita, iteraattoreita, generaattoreita, templateja, geneerisyyttä tai makroja. Voisi kuvitella, että näiden puuttuminen voisi rajoittaa asioita, mutta tämä ei pidä paikkaansa. JavaScriptin yksinkertaisuus mahdollistaa kuitenkin hyvin monimuotoisen ja voimakkaan käytön. JavaScript on erittäin voimakas ja puhdas kieli.
+                                </p>
+                                <p>
+                                    JavaScript tarjoaa monia mahdollisuuksia, joita ohjelmoija halutessaan käyttää. Tässä työssä käymme läpi JavaScriptin dynaamisia ja mielenkiintoisia ominaisuuksia.
+                                </p>
 
+                                <p>
+                                    Työn <i>ensimmäisessä osassa</i> tarkastellaan JavaScriptin <i>tyyppiturvallisuutta</i>.
+                                    JavaScriptin dynaamisen luonteen vuoksi arvojen tyypit voivat olla välillä hieman
+                                    yllättäviäkin. JavaScript eroaa huomattavasti  vahvasti tyypitetyistä kielistä,
+                                    kuten esimerkiksi Javasta tai C#:sta. Vahvasti tyypitetyissä kielissä muuttujilla on
+                                    tietty tyyppi, joka pysyy samana ohjelman suorituksen alusta loppuun. JavaScriptissä
+                                    muuttujilla ei ole tyyppiä vaan sen sijaan muuttujiin sijoitetuilla arvoilla on tyyppi.
+                                    Yhteen muuttujaan voidaan sijoittaa milloin tahansa uusi arvo, jonka tyyppi voi olla
+                                    mikä tahansa. Muuttujan arvon tyyppinä voi aluksi olla numero ja hetken päästä vaikkapa
+                                    merkkijono. Tämä dynaaminen tyypitys voi sekä helpottaa elämää, että tehdä koodista
+                                    virhealttiinpaa. Ensimmäisessä osiossa esitellään tapoja, joilla JavaScript-sovelluksesta
+                                    voi tehdä tyyppiturvallisemman.
+                                </p>
 
-                                <h2>Työn osiot</h2>
-                                <p>Työn <i>ensimmäisessä osassa</i> tarkastellaan JavaScriptin <i>tyyppiturvallisuutta</i>.
-                                JavaScriptin dynaamisen luonteen vuoksi arvojen tyypit voivat olla välillä hieman
-                                yllättäviäkin. JavaScript eroaa huomattavasti  vahvasti tyypitetyistä kielistä,
-                                kuten esimerkiksi Javasta tai C#:sta. Vahvasti tyypitetyissä kielissä muuttujilla on
-                                tietty tyyppi, joka pysyy samana ohjelman suorituksen alusta loppuun. JavaScriptissä
-                                muuttujilla ei ole tyyppiä vaan sen sijaan muuttujiin sijoitetuilla arvoilla on tyyppi.
-                                Yhteen muuttujaan voidaan sijoittaa milloin tahansa uusi arvo, jonka tyyppi voi olla
-                                mikä tahansa. Muuttujan arvon tyyppinä voi aluksi olla numero ja hetken päästä vaikkapa
-                                merkkijono. Tämä dynaaminen tyypitys voi sekä helpottaa elämää, että tehdä koodista
-                                virhealttiinpaa. Ensimmäisessä osiossa esitellään tapoja, joilla JavaScript-sovelluksesta
-                                voi tehdä tyyppiturvallisemman. </p>
+                                <p>
+                                    JavaScriptin dynaamisuus ei rajoitu pelkästään tyyppeihin. JavaScriptille tyypillinen ohjelmointitapa
+                                    käyttää hyväkseen funktionaalista ohjelmointia, sulkeumia ja ensimmäisen luokan funktioita.
+                                    Työn <i>toisessa osassa</i> tutkitaan <i>algoritmeja, funktioita, sulkeumia, poikkeusten käsittelyä ja
+                                    funktionaalista sekä imperatiivistä ohjelmointia</i>. JavaScriptiä voi ohjelmoida imperatiivisesti,
+                                    mutta koodista voi tehdä monimuotoisempaa käyttämällä yllä lueteltuja menetelmiä.
+                                </p>
 
-                                <p>Työn <i>viimeisessä osassa</i> perehdytään olioiden luontiin käyttäen konstruktoreja,
-                                sekä tutustutaan kuinka periytyminen hoidetaan JavaScriptissa. Vaikka JavaScript ei ole luokkapohjainen
-                                kieli, voidaan sillä kuitenkin jäljitellä luokkapohjaisuutta käyttämällä funktio-konstruktoreja.
-                                Funktio-konstruktori jäljittelee esimerkiksi Javalla luotua luokkaa ja sen konstruktoria. JavaScript "Luokalle" voidaan lisätä
-                                myös metodeita <i>prototyyppien</i> avulla. Tässä osassa tullaan tutustumaan myös siihen, mitä prototyypit ovat ja kuinka
-                                JavaScriptissa voidaan perintä toteuttaa näiden kautta.
+                                <p>
+                                    Työn <i>viimeisessä osassa</i> perehdytään olioiden luontiin käyttäen konstruktoreja,
+                                    sekä tutustutaan kuinka periytyminen hoidetaan JavaScriptissa. Vaikka JavaScript ei ole luokkapohjainen
+                                    kieli, voidaan sillä kuitenkin jäljitellä luokkapohjaisuutta käyttämällä funktio-konstruktoreja.
+                                    Funktio-konstruktori jäljittelee esimerkiksi Javalla luotua luokkaa ja sen konstruktoria. JavaScript "Luokalle" voidaan lisätä
+                                    myös metodeita <i>prototyyppien</i> avulla. Tässä osassa tullaan tutustumaan myös siihen, mitä prototyypit ovat ja kuinka
+                                    JavaScriptissa voidaan perintä toteuttaa näiden kautta.
                                 </p>
                             
                             </div>
@@ -574,6 +588,38 @@ function foo() {
                                 <h2>Oliot ja periytyminen</h2>
                                 <div id="chapter-4">
                                     <div class="paragraph">
+                                        <table class="table table-bordered">
+                                            <tr><th>Klassinen perintä</th><th>Prototyyppeihin perustuva perintä</th></tr>
+                                            <tr>
+                                                <td>
+                                                    Luokat ovat muuttumattomia (immutable). Niihin ei voi tehdä muutoksia tai lisätä metodeita kesken suorituksen.
+                                                </td>
+                                                <td>
+                                                    Prototyypit ovat joustavia. Ne voivat olla joko muutettavia tai muuttumattomia.
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Luokat joko tukevat tai eivät tue moniperintää.
+                                                </td>
+                                                <td>
+                                                    Oliot voivat periä monelta prototyypiltä.
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Sisältää turhaa koodia ja on turhan monimutkainen. On olemassa mm. abstrakteja-, final- ja rajapintaluokkia.
+                                                </td>
+                                                <td>
+                                                    Hyvin yksinkertainen ratkaisu. On olemassa vain olioita ja niistä laajentavia olioita.
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <i>Taulukko 1. Why Prototypal Inheritance Matters, [7].</i>
+                                    </div>
+                                    <br/><br/>
+
+                                    <div class="paragraph">
                                         <img src="assets/images/periytyminen.png" alt="inheritance" /><p><i>Kuva 1. allaolevan koodin "selvennystä" piirroksen avulla</i></p>
                                         <br/>
                                     <pre><code class="language-javascript">
@@ -699,12 +745,74 @@ omituinenObjekti.__proto__; // SisainenFunktio {}
                                         <strong>konstruoituObjekti</strong> siis ei ole varsinaisesti objekti, vaan se on funktio (konstruktori).
                                         Hieman hämmentävällä tavalla tämä kieli kyllä taipuu.
                                     </p>
-                                    </div><br/>
+                                    <br/>
+
+                                    <h4>new -avainsana</h4>
+                                    <p>
+                                        Artikkelissa Why Prototypal Inheritance Matters todetaan, että <strong>new</strong>-avainsanan käyttämistä tulisi välttää, koska se piilottaa JavaScriptin protyyppeihin perustuvan perinnän todellisen luonteen.
+                                    </p>
+
+                                    <p>
+                                        <i>"This indirection was intended to make the language seem more familiar to classically trained programmers, but failed to do that, as we can see from the very low opinion Java programmers have of JavaScript. JavaScript’s constructor pattern did not appeal to the classical crowd. It also obscured JavaScript’s true prototypal nature. As a result, there are very few programmers who know how to use the language effectively."</i>
+                                    </p>
+                                    -- Douglas Crockford, [7].
+                                    <br/><br/>
+                                    Argumentteja konstruktori- ja <strong>create</strong>-funktio -tyylien puolesta ja vastaan:
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>Konstruktori</th>
+                                            <th>Prototyyppi</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Funktionaalisia piirteitä ei voi käyttää yhdessä <strong>new</strong>-avainsanan kanssa.
+                                            </td>
+                                            <td>
+                                                Funktionaalisia ominaisuuksia voidaan käyttää yhdessä <strong>create</strong>-funktion kanssa.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>new</strong>-avainsanan käyttämättä jättäminen johtaa odottamattomiin virheisiin ja muuttujien sitomista globaaliin nimiavaruuteen.
+                                            </td>
+                                            <td>
+                                                <strong>create</strong>-funktio takaa sen, että ohjelma toimii aina odotetulla tavalla.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Prototyyppeihin perustuva perintä on tarpeettoman monimutkaista ja sekavaa.
+                                            </td>
+                                            <td>
+                                                Prototyyppeihin perustuva perintä on yksinkertaista ja helppoa ymmärtää.
+                                            </td>
+                                        </tr>
+                                    </table>
+                                        <i>Taulukko 2. Why Prototypal Inheritance Matters, [7].</i>
+                                    </div>
+                                    <br/>
 
                                     <h3>JavaScriptin perinnän ja oliomallin etuja</h3>
                                     <div class="paragraph">
                                         <p>JavaScriptissä voi muuttaa ajonaikaisesti sekä yhtä ilmentymää tai prototyyppiä, joskin on taas ihan eri asia, että noudattaako tämä hyvää ohjelmointitapaa.</p>
                                         <p>Esim. jos haluaisi tehdä sovelluksen joka kuvastaa evoluutiota eli kahdelta yksilöltä periytetään ominaisuuksia yhdelle tai useammalle jälkeläiselle enemmän tai vähemmän satunnaisesti. Javassa tällainen dynaamisuus ei ole mahdollista. JavaScriptissä on, ja tulokset voivat olla hyvin yllättäviä, kuten evoluutiossa ylipäätään.</p>
+                                        <p>
+                                            Prototyyppien kautta toiminnallisuuden periyttäminen on muistin käytön kannalta tehokasta,
+                                            koska jokaiselle luodulle oliolle ei varata muistia funktiolle aina uudelleen ja uudelleen.
+                                            Jos oliolta ei löydy funktiota jota se yrittää käyttää, edetään prototyyppi-ketjussa niin pitkälle,
+                                            kunnes funktio löytyy. Tämä on toki suorituskyvyltään hitaampaa verrattuna siihen,
+                                            että oliolta itseltään löytyisi kutsuttu funktio. JavaScriptia käytetään kuitenkin
+                                            paljon esimerkiksi mobiililaitteissa, joissa voi olla vähän muistia käytettävissä,
+                                            joten prototyyppien kautta perittyjä funktiota kannattaa käyttää varsinkin jos olioita
+                                            luodaan useita.
+                                        </p>
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        <p><strong>Lähteet:</strong></p>
+                                        <ul>
+                                            <li>[7] <a href="http://aaditmshah.github.io/why-prototypal-inheritance-matters/">http://aaditmshah.github.io/why-prototypal-inheritance-matters/</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
