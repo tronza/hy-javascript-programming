@@ -396,10 +396,10 @@ var coffees = [
     {id:3, coffeeCount: 5}
 ];
 var hallOfFame = coffees.sort(function (a, b) {
-    if (a.coffeeCount > b.coffeeCount) {
+    if (a.coffeeCount &gt; b.coffeeCount) {
         return -1;
     }
-    if (a.coffeeCount < b.coffeeCount) {
+    if (a.coffeeCount &lt; b.coffeeCount) {
         return 1;
     }
     return 0;
@@ -526,7 +526,7 @@ var try_it = function () {
                                         <pre><code class="language-javascript">
 function foo() {
     try {
-        for ( var i = 0; i < 10000; i++) {
+        for ( var i = 0; i &lt; 10000; i++) {
         // ...
         //tehdään paljon muuttujiin sijoittelua
         // ...
@@ -542,7 +542,7 @@ function foo() {
                                         <pre><code class="language-javascript">
 function foo() {
     function bigloop() {
-        for(var i = 0; i < 10000; i++) {
+        for(var i = 0; i &lt; 10000; i++) {
             // ...
             //tehdään paljon muuttujiin sijoittelua
             // ...
@@ -565,7 +565,7 @@ function foo() {
                                 <h2>Oliot ja periytyminen</h2>
                                 <div id="chapter-4">
                                     <div class="paragraph">
-                                        <img src="assets/images/periytyminen.png" /><p><i>Kuva 1. allaolevan koodin "selvennystä" piirroksen avulla</i></p>
+                                        <img src="assets/images/periytyminen.png" alt="inheritance" /><p><i>Kuva 1. allaolevan koodin "selvennystä" piirroksen avulla</i></p>
                                         <br/>
                                     <pre><code class="language-javascript">
 // define the Human Class
