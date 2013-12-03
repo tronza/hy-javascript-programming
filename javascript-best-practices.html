@@ -336,10 +336,12 @@ inTheForest(donald);
 inTheForest(john);
                                     </code></pre>
                                     <i>Duck typing JavaScriptissä</i>
+                                    <br/><br/>
 
                                     <div class="paragraph">
                                         <p>Toinen esimerkki JavaScriptin dynaamisesta käytöstä on monkey patching, jossa muutetaan metodeja ja attribuutteja lennossa. Sen avulla voidaan esimerkiksi muunnella ulkoisia kirjastoja tarpeen vaatiessa. Monkey patching voi tehdä koodista vaikeasti luettavaa ja voi tuottaa ongelmia, jos kirjastoja päivitetään.</p>
                                         <p>Tyyppeihin ei välttämättä tarvitse ottaa kantaa js-front endissä, jos toimintalogiikka löytyy back endistä. Tyyppitarkistuksia ja validointia voi olla kuitenkin kannattava tehdä myös js-front endissä. Tällöin back endiä ei rasiteta virheellisten syötteiden takia.</p>
+                                        <br/>
                                         <p><strong>Lähteet:</strong></p>
                                         <ul>
                                             <li>[1] <a href="http://en.wikipedia.org/wiki/Duck_typing">http://en.wikipedia.org/wiki/Duck_typing</a></li>
@@ -364,9 +366,8 @@ alert(sum(1,2,3)); // 6
                                         </code></pre>
                                         <p>Tässä koodiesimerkissä muuttujan <strong>sum</strong> arvoksi sijoitetaan funktioliteraali, joka palauttaa parametreina saamiensa arvojen summan. Tämän jälkeen tulostetaan (selaimessa toimiva esimerkki) funktion paluuarvo parametreilla 1,2 ja 3. Tulokseksi tulee 6.</p>
                                     </div>
-
+                                    <br/>
                                     <div class="paragraph">
-                                        <p>Tässä koodiesimerkissä muuttujan sum arvoksi sijoitetaan funktioliteraali, joka palauttaa parametreina saamiensa arvojen summan. Tämän jälkeen tulostetaan (selaimessa toimiva esimerkki) funktion paluuarvo parametreilla 1,2 ja 3. Tulokseksi tulee 6.</p>
                                         <p>Funktioita voidaan välittää parametreina:</p>
 
                                         <pre><code class="language-javascript">
@@ -385,7 +386,7 @@ alert(passFunctionAndApply(sum,3,4,5)); // 12
                                             <strong>sum</strong>-funktiolla ja luvuilla <strong>3, 4 ja 5</strong>. Tulokseksi pitäisi tulla <strong>12</strong>.
                                         </p>
                                     </div>
-
+                                    <br/>
                                     <div class="paragraph">
                                         <p>Sovellettu esimerkki tosimaailman sovelluksesta (kahvinjuojien järjestäminen juotujen kahvikupposten perusteella):</p>
                                         <pre><code class="language-javascript">
@@ -395,10 +396,10 @@ var coffees = [
     {id:3, coffeeCount: 5}
 ];
 var hallOfFame = coffees.sort(function (a, b) {
-    if (a.coffeeCount > b.coffeeCount) {
+    if (a.coffeeCount &gt; b.coffeeCount) {
         return -1;
     }
-    if (a.coffeeCount < b.coffeeCount) {
+    if (a.coffeeCount &lt; b.coffeeCount) {
         return 1;
     }
     return 0;
@@ -420,6 +421,7 @@ alert(hallOfFame[2].id); // 3
                                             (katso linkistä [5] <strong>sort</strong>-funktion tarkemmat tiedot). Lopuksi tulostetaan <strong>hallOfFame</strong>-listan kolme ensimmäistä indeksiä,
                                             jotka ovat suuruusjärjestyksessä.
                                         </p>
+                                        <br/>
                                         <div>
                                             <p><strong>Lähteet (funktionaalinen ja imperatiivinen osuus):</strong></p>
                                             <ul>
@@ -433,6 +435,7 @@ alert(hallOfFame[2].id); // 3
                                     <h3>Sulkeuma</h3>
                                     <div class="paragraph">
                                         <p>JavaScriptissä on mahdollista toteuttaa sulkeumia. Sulkeumien avulla voidaan esimerkiksi emuloida luokan kapselointia.</p>
+                                        <br/>
                                         <p>Seuraava esimerkki hyödyntää sulkeumaa, jotta laskurista saadaan alustettua uusia "instansseja":</p>
                                         <pre><code class="language-javascript">
 var counterMaker = function() {
@@ -462,6 +465,7 @@ alert(counter1()); // 4
                                             Tämän jälkeen määritellään uusi muuttuja <strong>counter2</strong> ja sille tehdään samat toimenpiteet
                                             kuin <strong>counter1</strong> muuttujalle. Esimerkistä näkee, että muuttujia voidaan kutsua kuin olioita konsanaan.
                                         </p>
+                                        <br/>
                                         <div>
                                             <p><strong>Lähteet:</strong></p>
                                             <ul>
@@ -485,6 +489,7 @@ alert(counter1()); // 4
                                             <strong>catch</strong>­lohkoja on aina korkeintaan yksi.
                                             Funktiokutsuista palataan niin kauan kunnes poikkeuksen käsittelevä lohko löytyy.
                                         </p>
+                                        <br/>
                                         <p>Poikkeuksen voi heittää esimerkiksi alla esitetyllä tavalla. Poikkeukselle kannattaa aina laittaa nimi ja viesti mistä tilanteesta virhe syntyi.</p>
                                         <pre><code class="language-javascript">
 var sum = function (a, b) {
@@ -521,7 +526,7 @@ var try_it = function () {
                                         <pre><code class="language-javascript">
 function foo() {
     try {
-        for ( var i = 0; i < 10000; i++) {
+        for ( var i = 0; i &lt; 10000; i++) {
         // ...
         //tehdään paljon muuttujiin sijoittelua
         // ...
@@ -537,7 +542,7 @@ function foo() {
                                         <pre><code class="language-javascript">
 function foo() {
     function bigloop() {
-        for(var i = 0; i < 10000; i++) {
+        for(var i = 0; i &lt; 10000; i++) {
             // ...
             //tehdään paljon muuttujiin sijoittelua
             // ...
@@ -560,7 +565,7 @@ function foo() {
                                 <h2>Oliot ja periytyminen</h2>
                                 <div id="chapter-4">
                                     <div class="paragraph">
-                                        <img src="assets/images/periytyminen.png" /><p><i>Kuva 1. allaolevan koodin "selvennystä" piirroksen avulla</i></p>
+                                        <img src="assets/images/periytyminen.png" alt="inheritance" /><p><i>Kuva 1. allaolevan koodin "selvennystä" piirroksen avulla</i></p>
                                         <br/>
                                     <pre><code class="language-javascript">
 // define the Human Class
