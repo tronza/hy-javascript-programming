@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript - Team Vikstr&ouml;m</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prismjs/prism.css" data-noprefix />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <script src="prismjs/prism.js"></script>
+    <header>
+        <div class="row">
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">JavaScript - Team Vikst&ouml;m</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero-unit" style="padding:40px">
+            <div class="row">
+
+                <br /><br /><br />
+                <div class="container">
+                    <ul class="nav nav-tabs">
+                        <li><a href="#etusivu" data-toggle="tab">Etusivu</a></li>
+                        <li><a href="#tyyppi" data-toggle="tab">Tyyppiturvallisuuden tavoittelua</a></li>
+                        <li><a href="#funktiot" data-toggle="tab">Algoritmit, funktiot ja sulkeumat, poikkeusten käsittely</a></li>
+                        <li><a href="#oliot" data-toggle="tab">Oliot ja periytyminen</a></li>
+                    </ul>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="etusivu">
+                                <h1>Hyviä JavaScript-ohjelmoinnin käytäntöjä</h1>
+                                <h2>Ryhmä Vikström</h2>
+                                <p>Ryhmä Vikströmin JavaScript-kurssin tuotokset</p>
+                                <h3>Ryhmän jäsenet</h3>
+                                <ul>
+                                    <li>Mika Vikström</li>
+                                    <li>Kai Kulju</li>
+                                    <li>Jouni Varis</li>
+                                </ul>
+                            </div>
+
+                            <div class="tab-pane" id="tyyppi">
+                                <h2>Tyyppiturvallisuuden tavoittelua</h2>
+                                <div id="chapter-2">
+                                    <h3>Funktioiden nimet</h3>
+                                    <ul>
+                                        <li>isNumber</li>
+                                        <li>isInteger</li>
+                                        <li>isFloat</li>
+                                        <li>isString</li>
+                                        <li>isBool</li>
+                                        <li>isNumberArray</li>
+                                        <li>isIntegerArray</li>
+                                        <li>isStringArray</li>
+                                        <li>checkType</li>
+                                    </ul>
+
+                                    <div class="paragraph">
+                                        Palauttaa true, jos parametrina annettu arvo on lukuarvo. Syötteistä "123" tai 123+"1" palautetaan false.
+                                        <pre><code class="language-javascript">
+function isNumber(value) {
+    return(typeof value === 'number')
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                        Palauttaa true, jos parametrina annettu arvo on  kokonaisluku. "1" ei kelpaa kokonaisluvuksi, mutta 1.0 kelpaa.
+                                        <pre><code class="language-javascript">
+function isInteger(value) {
+    if (value == Infinity || isNaN(value)) {
+        return false;
+    }
+    return (typeof value === 'number' && value % 1 === 0)
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                        Palauttaa true, jos parametrina annettu arvo on sisältää desimaaleja.
+                                        <pre><code class="language-javascript">
+function isFloat(value) {
+    if (value == Infinity || isNaN(value)) {
+        return false;
+    }
+    return (typeof value === 'number' && value % 1 !== 0)
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                        Palauttaa true,  parametrina annettu arvo on  merkkijono eli ainakin osa annetusta sisällöstä on heittomerkkien sisällä
+                                        <pre><code class="language-javascript">
+function isString(value){
+    return (typeof value === 'string');
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                        Palauttaa true, jos parametrina annettu arvo on totuusarvo. Palauttaa true vain parametrilla, joka on arvoltaan true tai false
+                                        <pre><code class="language-javascript">
+function isBool(value) {
+    return (typeof value === 'boolean');
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                        Palauttaa true, jos parametrina annetun taulukon kaikki alkiot ovat numeroita.
+                                        <pre><code class="language-javascript">
+function isNumberArray(array) {
+    return checkType(isNumber, array);
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                        Palauttaa true, jos parametrina annetun taulukon kaikki alkiot ovat kokonaislukuja.
+                                        <pre><code class="language-javascript">
+function isIntegerArray(array) {
+    return checkType(isInteger, array);
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                        Palauttaa true, jos parametrina annetun taulukon kaikki alkiot ovat merkkijonoja.
+                                        <pre><code class="language-javascript">
+function isStringArray(array) {
+    return checkType(isString, array);
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <h3>Esimerkkejä</h3>
+                                    <div class="paragraph">
+                                        Funktiolle checkType annetaan parametreina haluttu tarkistusfunktio (esim isInteger) ja taulukko, joka halutaan tarkastaa. Funktio käy läpi kaikki taulukon alkiot ja soveltaa niihin tarkistusfunktiota. Funktio palauttaa true, jos taulukon kaikki alkiot toteuttavat tarkistusfunktion ehdon. Jos yksikin taulukon alkio ei toteuta ehtoa, palautetaan false.
+                                        <pre><code class="language-javascript">
+function checkType(typeChecker, arrayToCheck) {
+    return (arrayToCheck.map(typeChecker).filter(function (x) {
+        return x === false;
+    }).length === 0);
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                        Palauttaa true, jos parametrina annettu arvo on true.
+                                        <pre><code class="language-javascript">
+function assertTrue(bool) {
+    return bool === true;
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                        Palauttaa true, jos parametrina annettu arvo on false.
+                                        <pre><code class="language-javascript">
+function assertFalse(bool) {
+    return bool === false;
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                        Alla olevat testit käyvät läpi annetun taulukon kaikki alkiot ja soveltavat niihin parametrina annettua tarkistusfunktiota. Funktio checkType palauttaa true, jos kaikki taulukon alkiot toteuttavat annetun ehdon. Kaikkien testien (asserttien) on tarkoitus palauttaa true.
+                                        <pre><code class="language-javascript">
+console.log(assertTrue(checkType(isInteger, [1, 2, 3, 4, 5.0, 0, 204325325])));
+console.log(assertFalse(checkType(isInteger, [1.23, 2.34, 1, 6])));
+console.log(assertFalse(checkType(isInteger, [1.23, "heh", 1])));
+console.log(assertTrue(checkType(isFloat, [232535345435.343352435, 1.23, 6.5, 0.1])));
+console.log(assertFalse(checkType(isFloat, [1.1, 2.2, 3.3, 4.4, Infinity])));
+console.log(assertFalse(checkType(isFloat, [1, 2, 3]))); // Should this be true?
+console.log(assertFalse(checkType(isFloat, [1.0, 6.0]))); // Should be true
+console.log(assertFalse(checkType(isFloat, [1.23, "heh", 1])));
+console.log(assertTrue(checkType(isString, ["12345673", "heh", "dsasszd", "false"])));
+console.log(assertFalse(checkType(isString, [1,2,3,4])));
+console.log(assertFalse(checkType(isString, [1.23, 2.34, 1, 6])));
+console.log(assertTrue(checkType(isBool, [false, true, false, false])));
+console.log(assertFalse(checkType(isBool, [1, 0, false, false])));
+console.log(assertFalse(checkType(isBool, [false, false, "false", "true"])));
+
+var trues = [
+    {
+        age: 20,
+        name: "Sakari"
+    },
+    {
+        age: 100,
+        name: "Eemeli-Elefantti"
+    },
+    {
+        age: 12,
+        name: "Jouko"
+    }
+];
+
+var falses = [
+    {
+        age: 20,
+        name: false
+    },
+    {
+        age: 10,
+        name: "Kvaak"
+    }
+];
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                    Funktio tarkistaa parametrina annetun olioliteraalin kenttien tyypit. Kentän age tyyppi tulee olla integer ja kentän name tyyppi string.
+                                        <pre><code class="language-javascript">
+function nameAndAge(value) {
+    return (isInteger(value.age) && isString(value.name));
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <div class="paragraph">
+                                        Yllä esiteltyä olioliteraalin tarkistusfunktiota sovelletaan testeissä.
+                                        <pre><code class="language-javascript">
+console.log(assertTrue(checkType(nameAndAge, trues)));
+console.log(assertFalse(checkType(nameAndAge, falses)));
+                                        </code></pre>
+                                    </div>
+                                    <br />
+
+                                    <h3>Pohdintoja</h3>
+                                    <div class="paragraph">
+                                        Tyypin tarkastus on paikallaan varsinkin käyttäjän antaman syötteen osalta, mutta myös muuten JavaScriptin dynaamisen luonteen vuoksi. Esimerkiksi jonkin kirjastofunktion käytössä, ei välttämättä voi olla varma funktioiden palauttamien arvojen tyypeistä.
+                                        Alla esimerkki, jossa kutsutaan eri funktioita sen mukaan onko kyseessä kokonaisluku vai desimaaliluku.
+                                        <pre><code class="language-javascript">
+var luku = prompt('Anna luku');
+luku = parseFloat(luku);
+if (isInteger(luku))
+    integerFunktio(luku);
+else if(isFloat(luku))
+    floatFunktio(luku);
+else
+    errorFunktio();
+function integerFunktio(luku){
+    write('Kokonaisluku: ' + luku);
+}
+function floatFunktio(luku){
+    write('Desimaaliluku: ' + luku);
+}
+function errorFunktio(luku){
+    write('Virheellinen syöte');
+}
+                                        </code></pre>
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="funktiot">
+                                <h2>Algoritmit, funktiot ja sulkeumat, poikkeusten käsittely</h2>
+                                <div id="chapter-3">
+                                    <h3>Algoritmityyli</h3>
+                                    <div class="paragraph">
+                                        <p>JavaScriptin dynaamisella tyypityksellä saa nopeasti ja kätevästi aikaan asioita. Tyyppejä ei tarvitse miettiä etukäteen ja muutoksia on helpompi tehdä. Toisaalta, tuleeko tällöin koodattua liian hätäisesti. Nopean ja joustavan koodaamisen kääntöpuoli on virhealttius. Tyyppivirheet eivät jää kiinni kääntäessä kuten esimerkiksi Javassa. Erityisesti erittäin suurissa ja toimintavarmuutta vaativissa useita henkilöitä sisältävissä projekteissa tästä voi koitua ongelmia.</p>
+                                        <p>Yksi esimerkki dynaamisen tyypityksen käytöstä on duck typing, joka on polymorfismia ilman perintää. Duck typingissa kahdella tai useammalla oliolla on sama metodi. Metodia ei ole peritty vaan se on toteutettu erikseen. JavaScriptissä toteutus onnistuu hyvin helposti. Alla esimerkki, jossa kutsutaan inTheForest-funktiota. Funktio kutsuu parametrina annetun olion quack-metodia. Funktion parametrin tyyppiä ei ole määritelty.</p>
+                                    </div>
+                                    <pre><code class="language-javascript">
+var Duck = function(){
+    this.quack = function(){alert('Quaaaaaack!');};
+    return this;
+};
+
+var Person = function(){
+    this.quack = function(){alert('The person imitates a duck.');};
+    this.name = function(){alert('John Smith');};
+    return this;
+};
+
+var inTheForest = function(duck){
+    duck.quack();
+};
+
+var donald = new Duck();
+var john = new Person();
+inTheForest(donald);
+inTheForest(john);
+                                    </code></pre>
+                                    <i>Duck typing JavaScriptissä</i>
+
+                                    <div class="paragraph">
+                                        <p>Toinen esimerkki JavaScriptin dynaamisesta käytöstä on monkey patching, jossa muutetaan metodeja ja attribuutteja lennossa. Sen avulla voidaan esimerkiksi muunnella ulkoisia kirjastoja tarpeen vaatiessa. Monkey patching voi tehdä koodista vaikeasti luettavaa ja voi tuottaa ongelmia, jos kirjastoja päivitetään.</p>
+                                        <p>Tyyppeihin ei välttämättä tarvitse ottaa kantaa js-front endissä, jos toimintalogiikka löytyy back endistä. Tyyppitarkistuksia ja validointia voi olla kuitenkin kannattava tehdä myös js-front endissä. Tällöin back endiä ei rasiteta virheellisten syötteiden takia.</p>
+                                        <p><strong>Lähteet:</strong></p>
+                                        <ul>
+                                            <li>[1] <a href="http://en.wikipedia.org/wiki/Duck_typing">http://en.wikipedia.org/wiki/Duck_typing</a></li>
+                                            <li>[2] <a href="http://en.wikipedia.org/wiki/Monkey_patch">http://en.wikipedia.org/wiki/Monkey_patch</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <h3>Funktionaalista vai imperatiivista?</h3>
+                                    <div class="paragraph">
+                                        <p>JavaScript on moniparadigmakieli, joka tukee funktionaalista ja imperatiivista ohjelmointia. JavaScriptin olio-ohjelmointi eroaa tavallisesta olio-ohjelmoinnista siten, että JavaScriptissä ei ole luokkia, vaan perintä hoidetaan prototyyppien avulla.</p>
+                                        <p>JavaScriptissä on funktionaalisille ohjelmointikielille tyypillisiä ominaisuuksia, kuten esimerkiksi se, että funktiot ovat ensimmäisen luokan funktioita, eli niitä voidaan sijoittaa muuttujien arvoiksi. Funktiot voivat olla anonyymejä, tai niille voidaan lisätä nimi, jotta funktio voi kutsua itseään. Katso Sulkeuma -kappale, jossa kerrotaan enemmän funktioiden näkyvyysalueista. JavaScriptissä ei ole muuttumattomia muuttujia (immutable), eikä pattern matchingia.</p>
+                                        <p>Jos JavaScriptiä haluaa kirjoittaa funktionaaliseen tapaan, äärimmäisen mielenkiintoinen ja veikeä tapaus on ClojureScript, joka osaa kääntää Clojure-koodia JavaScriptiksi. ClojureScript löytyy githubista seuraavasta osoitteesta: <a href="https://github.com/clojure/clojurescript">https://github.com/clojure/clojurescript</a></p>
+                                        <p>JavaScriptin ollessa kyseessä on vaikeaa sanoa suoraan, kumpaako paradigmaa tulisi soveltaa yleisesti, vaan on tärkeää osata hyödyntää molempia tarpeen vaatiessa.</p>
+                                        <p>Yleisesti käteviä funktionaaliseen tyyliin liittyviä toimintoja ovat esim. listojen tai kokoelmien käsittelyyn tarkoitetut <strong>map</strong>, <strong>reduce</strong> ja <strong>filter</strong> -funktiot. Näitä voidaan hyödyntää imperatiivisen ohjelmointityylin yhteydessä helposti.</p>
+                                        <br/>
+                                        <p>Anonyymit funktiot toimivat seuraavanlaisesti:</p>
+                                        <pre><code class="language-javascript">
+var sum = function(x,y,z) {
+    return (x+y+z);
+}
+alert(sum(1,2,3)); // 6
+                                        </code></pre>
+                                        <p>Tässä koodiesimerkissä muuttujan <strong>sum</strong> arvoksi sijoitetaan funktioliteraali, joka palauttaa parametreina saamiensa arvojen summan. Tämän jälkeen tulostetaan (selaimessa toimiva esimerkki) funktion paluuarvo parametreilla 1,2 ja 3. Tulokseksi tulee 6.</p>
+                                    </div>
+
+                                    <div class="paragraph">
+                                        <p>Tässä koodiesimerkissä muuttujan sum arvoksi sijoitetaan funktioliteraali, joka palauttaa parametreina saamiensa arvojen summan. Tämän jälkeen tulostetaan (selaimessa toimiva esimerkki) funktion paluuarvo parametreilla 1,2 ja 3. Tulokseksi tulee 6.</p>
+                                        <p>Funktioita voidaan välittää parametreina:</p>
+
+                                        <pre><code class="language-javascript">
+var passFunctionAndApply = function (fn,x,y,z) { return fn(x,y,z); };
+var sum = function(x,y,z) {
+    return x+y+z;
+};
+alert(passFunctionAndApply(sum,3,4,5)); // 12
+                                        </code></pre>
+                                        <p>
+                                            Ensin määritellään muuttuja <strong>passFunctionAndApply</strong>, jolle annetaan arvoksi funktioliteraali,
+                                            joka saa parametreinaan (tietenkään tässä ei ole tyyppitarkistuksia, joten ei voi varmaksi sanoa ;-)
+                                            funktion ja kolme lukuarvoa. Funktio palauttaa parametrinaan saaman funktion paluuarvon saamillaan
+                                            kolmella lukuarvoparametrilla. Tämän jälkeen määritellään anonyymi funktio -esimerkistä tuttu
+                                            <strong>sum</strong>-muuttuja funktioineen. Lopuksi tulostetaan <strong>passFunctionAndApply</strong>-funktion paluuarvo
+                                            <strong>sum</strong>-funktiolla ja luvuilla <strong>3, 4 ja 5</strong>. Tulokseksi pitäisi tulla <strong>12</strong>.
+                                        </p>
+                                    </div>
+
+                                    <div class="paragraph">
+                                        <p>Sovellettu esimerkki tosimaailman sovelluksesta (kahvinjuojien järjestäminen juotujen kahvikupposten perusteella):</p>
+                                        <pre><code class="language-javascript">
+var coffees = [
+    {id:1, coffeeCount: 10},
+    {id:2, coffeeCount: 100},
+    {id:3, coffeeCount: 5}
+];
+var hallOfFame = coffees.sort(function (a, b) {
+    if (a.coffeeCount > b.coffeeCount) {
+        return -1;
+    }
+    if (a.coffeeCount < b.coffeeCount) {
+        return 1;
+    }
+    return 0;
+});
+alert(hallOfFame[0].id); // 2
+alert(hallOfFame[1].id); // 1
+alert(hallOfFame[2].id); // 3
+                                        </code></pre>
+                                        <p>
+                                            Aluksi alustetaan muuttuja <strong>coffees</strong>, jolle annetaan nyt esimerkin vuoksi arvoksi lista,
+                                            joka sisältää olioita, joissa on tietoina kahvinlipittäjän tunniste ja juotujen kahvikupposten määrä.
+                                            Tämän jälkeen alustetaan muuttuja <strong>hallOfFame</strong>, jonka arvoksi määritellään <strong>coffees</strong>-lista,
+                                            jolle kutsutaan <strong>sort</strong>-funktiota, joka osaa järjestää listan parametrina annettavan funktio-takaisinkutsun
+                                            (callback) kautta. Takaisinkutsuksi määritellään funktioliteraali, joka vertailee kahta listan elementtiä
+                                            toisiinsa (<strong>a</strong> ja <strong>b</strong> arvoparametrit) ja palauttaa arvoinaan <strong>-1</strong> jos <strong>a</strong>:n
+                                            <strong>coffeeCount</strong> on suurempi kuin <strong>b</strong>:n vastaava.
+                                            Funktioliteraali palauttaa <strong>1</strong> jos <strong>a</strong>:n <strong>coffeeCount</strong> on pienempi kuin <strong>b</strong>:n vastaava.
+                                            Jos kumpikaan ehtolauseke ei toteudu, palautetaan <strong>0</strong>, joka tarkoittaa sitä, että <strong>a</strong> ja <strong>b</strong> ovat saman suuruisia
+                                            (katso linkistä [5] <strong>sort</strong>-funktion tarkemmat tiedot). Lopuksi tulostetaan <strong>hallOfFame</strong>-listan kolme ensimmäistä indeksiä,
+                                            jotka ovat suuruusjärjestyksessä.
+                                        </p>
+                                        <div>
+                                            <p><strong>Lähteet (funktionaalinen ja imperatiivinen osuus):</strong></p>
+                                            <ul>
+                                            <li>[3] <a href="http://dailyjs.com/2012/09/14/functional-programming/">http://dailyjs.com/2012/09/14/functional-programming/</a></li>
+                                            <li>[4] <a href="http://www.ibm.com/developerworks/java/library/wa-javascript/index.html">http://www.ibm.com/developerworks/java/library/wa-javascript/index.html</a></li>
+                                            <li>[5] <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <h3>Sulkeuma</h3>
+                                    <div class="paragraph">
+                                        <p>JavaScriptissä on mahdollista toteuttaa sulkeumia. Sulkeumien avulla voidaan esimerkiksi emuloida luokan kapselointia.</p>
+                                        <p>Seuraava esimerkki hyödyntää sulkeumaa, jotta laskurista saadaan alustettua uusia "instansseja":</p>
+                                        <pre><code class="language-javascript">
+var counterMaker = function() {
+    var privateCounter = 0;
+    return function() {
+        privateCounter++;
+        return privateCounter;
+    }
+}
+
+var counter1 = counterMaker();
+alert(counter1()); // 1
+alert(counter1()); // 2
+var counter2 = counterMaker();
+alert(counter1()); // 3
+alert(counter2()); // 1
+alert(counter2()); // 2
+alert(counter1()); // 4
+                                        </code></pre>
+                                        <p>
+                                            Aluksi määritellään muuttuja <strong>counterMaker</strong>, jolle annetaan arvoksi funktioliteraali.
+                                            Funktioliteraalissa määritellään muuttuja <strong>privateCounter</strong> alkuarvolla <strong>0</strong> ja palautetaan
+                                            funktioliteraali. Palautettavassa funktioliteraalissa <strong>privateCounter</strong> muuttujan arvoa kasvatetaan
+                                            yhdellä ja palautetaan kasvatettu arvo. Seuraavaksi asetetaan muuttujan <strong>counter1</strong> arvoksi
+                                            <strong>counterMaker</strong>-funktion paluuarvo, joka on sulkeuma. Seuraavaksi suoritetaan kaksi kertaa
+                                            <strong>counter1</strong>-muuttujassa oleva sulkeuma ja tulostetaan sen paluuarvo.
+                                            Tämän jälkeen määritellään uusi muuttuja <strong>counter2</strong> ja sille tehdään samat toimenpiteet
+                                            kuin <strong>counter1</strong> muuttujalle. Esimerkistä näkee, että muuttujia voidaan kutsua kuin olioita konsanaan.
+                                        </p>
+                                        <div>
+                                            <p><strong>Lähteet:</strong></p>
+                                            <ul>
+                                                <li>[6] <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <h3>Poikkeukset</h3>
+                                    <div class="paragraph">
+                                        <p>
+                                            JavaScriptissä poikkeuksia voidaan heittää helposti mistä vain ja milloin vain.
+                                            Ne ovat erityisen hyödyllisiä debuggausta varten. Poikkeuksia käsitellään Javasta tutulla <strong>try/catch</strong>­rakenteella.
+                                            JavaScriptissä on olemassa valmiita poikkeusolioita, mutta niitä voi määritellä myös itse.
+                                            Esimerkiksi funktiolle annetut epäkelvot parametrit, kuten teksti numeerisen tiedon sijaan,
+                                            voidaan havaita <strong>if</strong>-lauseella ja <strong>if</strong>­lauseen lohkoon voidaan määritellä <strong>throw</strong>-lohko,
+                                            jolla heitetään poikkeus. <strong>throw</strong>-lohkon sisään määritellään poikkeuksen tiedot sisältävä olio,
+                                            joka minimissään sisältää kentät nimi ja viesti, mutta ohjelmoija voi halutessaan keksiä itse lisää kenttiä.
+                                            Mikäli <strong>try/catch</strong>­lohkossa halutaan reagoida eri tavoin eri poikkeuksiin,
+                                            tulee heitetyn poikkeuksen nimi tarkistaan <strong>catch</strong>-lohkon sisällä. Toisin sanoen,
+                                            <strong>catch</strong>­lohkoja on aina korkeintaan yksi.
+                                            Funktiokutsuista palataan niin kauan kunnes poikkeuksen käsittelevä lohko löytyy.
+                                        </p>
+                                        <p>Poikkeuksen voi heittää esimerkiksi alla esitetyllä tavalla. Poikkeukselle kannattaa aina laittaa nimi ja viesti mistä tilanteesta virhe syntyi.</p>
+                                        <pre><code class="language-javascript">
+var sum = function (a, b) {
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        throw {
+            name: "TypeError",
+            message: "Error detected. Only numbers allowed to use."
+        }
+    }
+    return a + b;
+};
+
+var try_it = function () {
+    try {
+        sum("nine", "two");
+    } catch (e) {
+        alert(e.name + ": " + e.message); //Error detected. Only Numbers allowed.
+    }
+}
+                                        </code></pre>
+                                        <br/>
+
+                                        <p>
+                                            Poikkeuksia tulisi käyttää ainakin yleisesti käytettävissä olevissa rajapinnoissa.
+                                            Näiden funktioiden on tarkoitus kertoa, jos niiden käyttäjä käyttää niitä väärin.
+                                            Muussa tapauksessa käyttäjä joutuisi debuggamaan käyttämäänsä funktiota ja selvittää mikä meni pieleen.
+                                        </p>
+                                        <p>
+                                            Useat kehittäjät ovat sitä mieltä, että <strong>try/catch</strong> lauseiden käyttö on pahuutta JavaScriptissä.
+                                            Poikkeustenkäsittelyllä voikin olla JavaScriptissa huomattavia suorituskykyä heikentäviä vaikutuksia, varsinkin
+                                            jos niitä ei käytetä tehokkaalla tavalla. Suorituskykyä saadaan kuitenkin helposti parannettua.
+                                            Tämä vaatii pieniä muutoksia <strong>try/catch</strong> osioon.
+                                            Esimerkiksi:</p>
+                                        <pre><code class="language-javascript">
+function foo() {
+    try {
+        for ( var i = 0; i < 10000; i++) {
+        // ...
+        //tehdään paljon muuttujiin sijoittelua
+        // ...
+        }
+    }
+    catch (e) {
+        //tarkistetaan virheet
+    }
+}
+                                        </code></pre>
+                                        <br/>
+                                        <p>Yläpuolella oleva koodia kannattaa muokata näin:</p>
+                                        <pre><code class="language-javascript">
+function foo() {
+    function bigloop() {
+        for(var i = 0; i < 10000; i++) {
+            // ...
+            //tehdään paljon muuttujiin sijoittelua
+            // ...
+        }
+    }
+
+    try {
+        bigloop();
+    }
+    catch (e) {
+        //tarkistetaan virheet
+    }
+}
+                                        </code></pre>
+                                        <p>Raskaiden silmukoiden suorittaminen <strong>try/catch</strong>-osiossa omassa funktiossaan voi tuoda parannuksen suorituskykyyn.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="oliot">
+                                <h2>Oliot ja periytyminen</h2>
+                                <div id="chapter-4">
+                                    <div class="paragraph">
+                                        <img src="../periytyminen.png" /><p><i>Kuva 1. allaolevan koodin "selvennystä" piirroksen avulla</i></p>
+                                        <br/>
+                                    <pre><code class="language-javascript">
+// define the Human Class
+function Human(name, age) {
+    this.name = name || "anonymous human";
+    this.age = age
+}
+
+Human.prototype.introduce = function(){
+    console.log ('I am human!');
+};
+    Human.prototype.getOlder = function(){
+    age++;
+};
+
+// define the Programmer class
+function Programmer(name, age, salary) {
+    // Call the parent constructor
+    Human.call(this,(name || "anonymous programmer"), age);
+    this.salary = salary;
+}
+
+// inherit Human
+Programmer.prototype = new Human();
+
+// correct the constructor pointer because it points to Human
+Programmer.prototype.constructor = Programmer;
+
+// replace the introduce method
+Programmer.prototype.introduce = function(){
+    console.log('hi, I am JavaScript programmer');
+}
+
+// add brag method
+Programmer.prototype.brag = function(){
+    console.log('LOL, I get paid: ' +this.salary+ ' monthly');
+}
+
+var keijo = new Programmer('koodari-keijo', 999, 100000);
+keijo.introduce();           // hi, I am JavaScript programmer
+keijo.brag();                // LOL, I get paid: 100000 monthly
+
+var teppo = new Human('Teppo', 54);
+teppo.introduce();           // I'm a human!
+console.log(teppo.name);     // Teppo
+
+// check inheritance
+console.log(keijo instanceof Human);      // true
+console.log(keijo instanceof Programmer); // true
+                                    </code></pre>
+                                    </div>
+
+                                    <h3>Periytymiseen liittyvien asioiden selvennystä</h3>
+                                    <div class="paragraph">
+                                        <p><strong>prototype -kenttä</strong></p>
+                                        <p>prototype-kenttä sisältää viitteen funktion prototyyppiin. Lähtökohtaisesti prototype-kentän viittaukset menevät seuraavasti, kun on kyseessä:</p>
+                                        <ul>
+                                            <li>funktio	-> viittaa funktion omaan prototyyppiolioon</li>
+                                            <li>funktion prototyyppiolio -> ei ole määritelty, koska on olio(ilmentymä)</li>
+                                            <li>olioilmentymä -> ei määritelty</li>
+                                        </ul>
+
+                                        <p>Viitteen päässä oleva prototyyppi-olio sisältää kyseisen funktion omat kentät ja funktiot. Ilmentymillä prototyyppi-kenttää ei ole, vaan ilmentymä itsessään sisältää ilmentymän omat toiminnallisuudet, joita ei ole peritty mistään, vaan lisätty suoraan ilmentymään. Sen sijaan ilmentymät perivät <strong>constructor</strong>-kentän prototyyppiketjun kautta.</p>
+                                        <p>Prototype-kentässä ei ole määriteltynä konstruktorin palauttamia ominaisuuksia, vaan konstruktori palauttaa nämä kutsuttaessa uudelle ilmentymälle. Konstruktoria tulee kutsua avainsanalla <strong>new</strong>. Konstruktori sisältää kaikki <strong>this</strong>-viitteen päässä olevat ominaisuudet. Näihin ominaisuuksiin pääsee käsiksi vasta luomalla uuden ilmentymän kutsumalla konstruktoria.</p>
+
+                                        <pre><code class="language-javascript">
+Human(ika) { this.ika = ika }
+                                        </code></pre>
+                                        <p><strong>Human.prototype.ika</strong> kenttää ei ole olemassa. Sisältö on <strong>Human.prototype.constructor</strong>-kentän uumenissa.</p>
+                                        <br/>
+                                        <p>Mikäli luodaan funktiolle yhteisiä ominaisuuksia laajentamalla funktion prototyyppiä, päästään näihin käsiksi, vaikka yhtään ilmentymää ei olisi luotukaan.</p>
+                                        <pre><code class="language-javascript">
+Human.prototype.vanhene = function () { this.ika++ }
+                                        </code></pre>
+
+                                        <p>Nyt kenttään päästään käsiksi viitteellä <strong>Human.prototype.vanhene</strong></p>
+                                        <br/>
+                                        <p><strong>Human.prototype.vanhene</strong>-kenttää voi muuttaa, vaikka <strong>Human</strong>-ilmentymiä olisi jo tehty. Muutokset päivittyvät kaikille <strong>Human</strong>-ilmentymille. Sen sijaan, <strong>Human</strong>-funktiolle voidaan antaa uusi konstruktori, jolloin uuden konstruktorin palauttamat ominaisuudet palautuvat vain uusille ilmentymille.</p>
+
+                                        <pre><code class="language-javascript">
+var eka = new Human(3);
+Human.prototype.constructor = function(ika) { this.ika = 100; }
+var toka = new Human(9)
+eka.ika;        // palauttaa 3
+toka.ika        //palauttaa 100
+
+eka.vanhene();      //iäksi tulee 4
+toka.vanhene();     //iäksi tulee 101
+                                        </code></pre>
+                                        <br/>
+                                        <h4>__proto__ -kenttä</h4>
+                                        <p>__proto__ -kentät muodostavat prototyyppiketjun. Lähtökohtaisesti viittaukset menevät seuraavasti, kun kyseessä on:</p>
+                                        <ul>
+                                            <li>funktio	-> viittaa Funktion-funktion prototyyppiolioon</li>
+                                            <li>funktion prototyyppiolio -> viittaa Object-funktion prototyyppiolioon
+                                            <li>olioilmentymä -> viittaa funktion prototyyppiolioon</li>
+                                        </ul>
+                                        <br/>
+                                        <h4>Function (objekti/konstruktori)</h4>
+
+                                    <p>Jännittävä juttu, jossa konstruktoreilla voi tehdä konstruktoreita:</p>
+                                    <pre><code class="language-javascript">
+function OmituinenKonstruktori()
+{
+    this.muuttuja1 = "Karvanaama";
+
+    return function SisainenFunktio() {
+        this.muuttuja2 = "Hippaliisa";
+    }
+}
+
+var konstruoituObjekti = new OmituinenKonstruktori();
+konstruoituObjekti.__proto__; // function Empty() { ... }
+
+var omituinenObjekti = new konstruoituObjekti();
+omituinenObjekti.__proto__; // SisainenFunktio {}
+                                    </code></pre>
+
+                                    <p>
+                                        Tässä siis <strong>OmituinenKonstruktori</strong> palauttaa uuden konstruktorin,
+                                        josta voidaan luoda <strong>new</strong>-avainsanalla instansseja.
+                                        <strong>konstruoituObjekti</strong> siis ei ole varsinaisesti objekti, vaan se on funktio (konstruktori).
+                                        Hieman hämmentävällä tavalla tämä kieli kyllä taipuu.
+                                    </p>
+                                    </div><br/>
+
+                                    <h3>JavaScriptin perinnän ja oliomallin etuja</h3>
+                                    <div class="paragraph">
+                                        <p>JavaScriptissä voi muuttaa ajonaikaisesti sekä yhtä ilmentymää tai prototyyppiä, joskin on taas ihan eri asia, että noudattaako tämä hyvää ohjelmointitapaa.</p>
+                                        <p>Esim. jos haluaisi tehdä sovelluksen joka kuvastaa evoluutiota eli kahdelta yksilöltä periytetään ominaisuuksia yhdelle tai useammalle jälkeläiselle enemmän tai vähemmän satunnaisesti. Javassa tällainen dynaamisuus ei ole mahdollista. JavaScriptissä on, ja tulokset voivat olla hyvin yllättäviä, kuten evoluutiossa ylipäätään.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- end of row -->
+                </div> <!-- end of container -->
+            </div> <!-- end of row -->
+        </div> <!-- end of hero-unit -->
+    </div> <!-- end of container -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
