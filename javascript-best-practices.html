@@ -212,6 +212,7 @@ function checkType(typeChecker, arrayToCheck) {
     }).length === 0);
 }
                                         </code></pre>
+                                        <i>Tälle löytyy toki omakin funktionsa, <strong>Array.prototype.every()</strong>.</i>
                                     </div>
                                     <br />
 
@@ -670,6 +671,13 @@ console.log(teppo.name);     // Teppo
 // check inheritance
 console.log(keijo instanceof Human);      // true
 console.log(keijo instanceof Programmer); // true
+
+console.log(keijo.__proto__ === Human.prototype); // false
+console.log(keijo.__proto__ === Programmer.prototype); // true
+console.log(teppo.__proto__ === Human.prototype); // true
+console.log(Programmer.prototype.__proto__ === Human.prototype); // true
+console.log(Programmer.prototype.hasOwnProperty("introduce")) // true
+console.log(Programmer.prototype.hasOwnProperty("brag")) // true
                                     </code></pre>
                                     </div>
 
